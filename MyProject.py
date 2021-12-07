@@ -10,6 +10,9 @@ class Test(unittest.TestCase):
     def test_taskExist(self):
         task = Task("learn python")
         self.assertEqual("learn python", task.description)
+    def test_statusExist(self):
+        task = Task("learn python", False)
+        self.assertEqual(False, task.status)  
     
 
 
