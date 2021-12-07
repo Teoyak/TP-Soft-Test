@@ -19,6 +19,10 @@ class Test(unittest.TestCase):
     def test_IDExist(self): 
         task = Task("learn python")
         self.assertGreaterEqual (task.ID, 0)
+    def test_IDisUnique(self):
+        task1 = Task("learn python")
+        task2 = Task("learn TDD")
+        self.assertNotEqual (task1.ID, task2.ID)
 
 
 if __name__ == '__main__':
