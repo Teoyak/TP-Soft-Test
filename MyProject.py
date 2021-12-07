@@ -1,14 +1,17 @@
-print('hello world')
+print('-------------- début du programme -----------------------')
 
-# Une fonction qui me retourne une tache bien formée
-def createTask (description) :
-    Task = [1, description, False]
-    return Task
+import unittest
 
-# affichage d'une tache bien formée sur une ligne
-# n'affiche pas encore l'état todo/done
-def printTask (Task) :
-    print(Task[0] + '[ ]' + description)
-    return 
+class Task:
+    def __init__(self, description):
+        self.description = description
 
-printTask(createTask('voici une tache'))
+class Test(unittest.TestCase):
+    def test_taskExist(self):
+        task = Task("learn python")
+        self.assertEqual("learn python", task.description)
+    
+
+
+if __name__ == '__main__':
+    unittest.main()
