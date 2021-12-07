@@ -11,6 +11,13 @@ class Task:
         self.ID = Task.counter
         Task.counter = Task.counter+1 
         # false = todo, true = done
+    def setToDone (self):
+        self.status = True
+    def setToTodo (self):
+        self.status = False
+
+def readTheFirstChar (string):
+    return string[:1]
 
 class Test(unittest.TestCase):
     def test_taskExist(self):
@@ -26,6 +33,17 @@ class Test(unittest.TestCase):
         task1 = Task("learn python")
         task2 = Task("learn TDD")
         self.assertNotEqual (task1.ID, task2.ID)
+    def test_setStatusDone (self):
+        task = Task("learn python")
+        task.setToDone()
+        self.assertEqual(task.status, True)
+    def test_setStatusTodo (self):
+        task = Task("learn python")
+        task.setToTodo()
+        self.assertEqual(task.status, False)
+    def test_ReadTheFirstChar (self):
+        head = readTheFirstChar ("+ exemple de commande")
+        self.assertEqual(head, "+")
 
 
 if __name__ == '__main__':
