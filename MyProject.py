@@ -1,12 +1,15 @@
 print('-------------- début du programme -----------------------')
 
+from typing import Counter
 import unittest
 
 class Task:
+    counter = 0
     def __init__(self, description):
         self.description = description
         self.status = False 
-        self.ID = 0
+        self.ID = Task.counter
+        Task.counter = Task.counter+1 
         # false = todo, true = done
 
 class Test(unittest.TestCase):
